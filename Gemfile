@@ -6,14 +6,10 @@ gem 'rails', '3.2.14'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3'
-group :development do
-  gem 'sqlite3', '1.3.5'
-end  
-
-
 group :development, :test do
+  gem 'sqlite3', '1.3.5'
   gem 'test-unit-rails'
-end	
+end  
 
 # Gems used only for assets and not required
 # in production environments by default.
