@@ -5,6 +5,7 @@
 		<%= form_for(@user) do |f| %>
 		<fieldset>
 		<legend><h3>Signup for a new user here.</h3></legend>
+		<%= render 'shared/error_messages' %>
 		<%= f.label :name %>
 		<%= f.text_field :name %>
 		<%= f.label :email %>
