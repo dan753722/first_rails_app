@@ -44,11 +44,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        flash[:success] = "A new user is saved."
+        flash.now[:success] = "A new user is saved."
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
-        flash[:error] = "Something went wrong here."
+        flash.now[:error] = "Something went wrong here."
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
