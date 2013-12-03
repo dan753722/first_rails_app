@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
-  has_many :microposts
+  has_many :microposts, dependent: :destroy
   has_secure_password
   before_save{|user| user.email = email.downcase}
   before_save :create_token # a before_save callback to create token
@@ -20,10 +20,14 @@ class User < ActiveRecord::Base
   	"#{@name}: < #{@email}"
   end
 
+  def feed
+    microposts.where("user_id=?",id)
+  end
+
   private 
-    def create_token
-      self.token = SecureRandom.urlsafe_base64
-    end
+  def create_token
+    self.token = SecureRandom.urlsafe_base64
+  end
 
 
 end

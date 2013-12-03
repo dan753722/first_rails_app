@@ -9,7 +9,7 @@ FirstApp::Application.routes.draw do
   
   #get "static_pages/contact"
 
-  resources :microposts
+  resources :microposts, only: [:create, :destroy]
 
   resources :sessions, only: [:new, :create, :destroy]
   
