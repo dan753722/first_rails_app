@@ -46,7 +46,7 @@ class MicropostsController < ApplicationController
     respond_to do |format|
       if @micropost.save
         flash.now[:success] = "Micropost saved!"
-        format.html { redirect_to @micropost, notice: 'Micropost was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Micropost was successfully created.' }
         format.json { render json: @micropost, status: :created, location: @micropost }
       else
         @feed_items = []
